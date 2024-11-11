@@ -15,6 +15,15 @@ int main(int argc, char *argv[])
 	if(readAndValidation(&head1, &tail1,&head2, &tail2, argc, argv)== FAILURE)
 		return FAILURE;
 	printf("INFO: readAndValidation is Done!\n");
+	char *str=argv[3];
+
+	// checking argument 2 is zero in division operation
+	if((strlen(str) == 1) && argv[2][0]== '/'){
+		if(argv[3][0] == '0'){
+			printf("INFO: Division can not be done for this arguments!\n");
+			return 0;
+		}
+	}
 	/*Find big number among two lists*/
 	int big_num = find_bigger(&head1,&head2);
 	/* Function for extracting the operator */
@@ -72,8 +81,11 @@ int main(int argc, char *argv[])
 			}
 			else{
 				/*Call division Function*/
-				division(&head1, &tail1, &head2, &tail2, &headR, &tailR);
-				printf("INFO: Division of two numbers Done!\n");
+				
+				// else{
+					division(&head1, &tail1, &head2, &tail2, &headR, &tailR);
+					printf("INFO: Division of two numbers Done!\n");
+				// }
 			}
 			break;
 		default:
